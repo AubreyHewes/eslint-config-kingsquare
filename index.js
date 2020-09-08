@@ -6,9 +6,7 @@ module.exports = {
     // disable typescript formatting stuff
     "prettier/@typescript-eslint",
   ],
-  plugins: ["prettier"],
   rules: {
-    "prettier/prettier": "error",
     "no-var": "error",
     "prefer-const": "error",
     "prefer-destructuring": "error",
