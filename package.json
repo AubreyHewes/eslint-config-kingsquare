@@ -1,6 +1,6 @@
 {
   "name": "eslint-config-kingsquare",
-  "version": "6.0.3",
+  "version": "7.0.0",
   "description": "ESLint configuration used by Kingsquare BV",
   "author": "Kingsquare BV",
   "license": "MIT",
@@ -11,10 +11,19 @@
   "bugs": {
     "url": "https://github.com/kingsquare/eslint-config-kingsquare/issues"
   },
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "files": [
-    "index.js"
+    "README.md",
+    "dist"
   ],
-  "main": "index.js",
+  "engines": {
+    "node": "^10.12.0 || >=12.0.0"
+  },
+  "scripts": {
+    "build": "rm -rf dist && tsc -d --outDir dist/ && eslint --no-ignore --fix dist/*",
+    "lint": "eslint '**/*.{js,ts}'"
+  },
   "dependencies": {
     "@typescript-eslint/eslint-plugin": "^2.26.0",
     "@typescript-eslint/parser": "^2.26.0",
@@ -33,7 +42,13 @@
   "peerDependencies": {
     "typescript": "^3.7.5"
   },
+  "devDependencies": {
+    "typescript": "^3.7.5"
+  },
   "eslintConfig": {
-    "extends": "./"
-  }
+    "extends": "./dist/index.js"
+  },
+  "eslintIgnore": [
+    "dist/"
+  ]
 }
